@@ -12,21 +12,21 @@ Semester 2:
   - CS 2340
   - MATH 2561
 
+# hypothetical scenario: I don't get CS 2200 and have to take it next semester
 Semester 3:
   - CS 3511
-  - CS 2200
-  - CS 3600
   - CS 3630
   - MATH 3215
   - PSYC 1101
 
 Semester 4:
   - CS 4641
-  - RESEARCH 1
-  - CS 3210
   - ECE 2031
   - CS 4240
   - MATH 3012
+  - CS 2200
+  - CS 3600
+  - RESEARCH 1
 
 Semester 5:
   - CS 4644
@@ -35,6 +35,7 @@ Semester 5:
   - LMC 4701
   - CS 3220
   - CS 4003
+  - CS 3210
   # - HIST 2112 # TODO: take this during the summer
 
 Semester 6:

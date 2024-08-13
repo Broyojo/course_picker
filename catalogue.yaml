@@ -128,8 +128,8 @@ CS 3220:
     - CS 2200
     - ECE 2031
 
-CS 3510:
-  name: Design and Analysis of Algorithms
+CS 3511:
+  name: Honors Design and Analysis of Algorithms
   credits: 3
   requires:
     - CS 2051
@@ -166,13 +166,13 @@ CS 4644:
   requires:
     - MATH 2561
     - CS 2110
-    - CS 3510
+    - CS 3511
 
 CS 4650:
   name: Natural Language
   credits: 3
   requires:
-    - CS 3510
+    - CS 3511
     - MATH 2561
 
 CS 4210:
