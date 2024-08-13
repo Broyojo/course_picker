@@ -1,0 +1,40 @@
+# Goal: have every kind of subject each semester to make it seem rounded. Don't overload on one subject at a time, try to keep it interesting. 
+
+# junior
+Semester 3:
+  - CS 3510      # Design & Analysis of Algorithms  (core)
+  - CS 3600      # Intro to Artificial Intelligence (intel)
+  - CS 2200      # Systems and Networks             (sysarch)
+  - MATH 3215    # Probability & Statistics         (math)
+  - PSYC 1101    # General Psychology               (humanity)
+
+Semester 4:
+  - CS 3630      # Intro to Perception & Robotics   (intel)
+  - CS 4240      # Compilers & Interpreters         (sysarch)
+  - MATH 3012    # Applied Combinatorics            (math)
+  - CS 3001      # Computing & Society              (humanity)
+  - RESEARCH 1   # Undergraduate Research           (research)
+  - LMC 4701     # US Research Proposal Writing     (research)
+
+# senior (maybe try to take graduate level versions of DL, NLP, etc)
+# maybe take an extra course each semester here?
+Semester 5:
+  - CS 4641      # Machine Learning                 (intel)   [hard]
+  - CS 3210      # Design of Operating Systems      (sysarch) [hard]
+  - ECE 2031     # Digital Design Lab               (sysarch)
+  - HUMANITY 1   # Humanity                         (humanity)
+  - RESEARCH 2   # Undergraduate Research           (research)
+  - LMC 4702     # US Research Thesis Writing       (research)
+
+Semester 6:
+  - CS 4644      # Deep Learning                    (intel)
+  - CS 3220      # Processor Design                 (sysarch)
+  - HUMANITY 2   # Humanity                         (humanity)
+  - RESEARCH 3   # Undergraduate Research           (research)
+  # extra option 3 credits
+
+Semester 7:
+  - CS 4210      # Advanced Operating Systems       (sysarch)
+  - CS 4650      # Natural Language                 (intel)
+  - POL 1101     # Government of the United States  (humanity)
+  # extra option 6 credits (2x 3 credit courses)

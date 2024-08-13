@@ -1,0 +1,47 @@
+CS 4003:
+    3 credits
+
+HUMANITY 1:
+    3 credits
+
+HUMANITY 2:
+    3 credits
+
+PSYC 1101:
+    General Psychology
+    3 credits
+
+CS 2200:
+    Systems and Networks
+    3 credits
+
+CS 3210:
+    Design-Operating Systems
+    3 credits
+    requires CS 2200
+
+CS 3220:
+    Processor Design
+    3 credits
+    requires CS 2200
+
+CS 3510:
+    Dsgn&Analysis-Algorithms
+    3 credits
+
+ECE 2031:
+    Digital Design Lab
+    3 credits
+
+CS 3630:
+    Intro-Perception&Robotic
+    3 credits
+
+# Approaches to Intelligence
+
+CS 4644:
+    Deep Learning
+    3 credits
+    requires 3510
+
+CS 4650:

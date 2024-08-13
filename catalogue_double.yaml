@@ -1,0 +1,125 @@
+### Legislative Requirements (take over the summer)
+
+HIST 2111:
+  name: The United States to 1877
+  credits: 3
+
+INTA 1200:
+  name: American Government in Comparative Perspective
+  credits: 3
+
+### Core Requirements
+
+HUMANITY 1:
+  name: Humanity 1
+  credits: 3
+
+HUMANITY 2:
+  name: Humanity 2
+  credits: 3
+
+PSYC 1101:
+  name: General Psychology
+  credits: 3
+
+### Major Requirements
+
+CS 3001:
+  name: Computing & Society
+  credits: 3
+
+# Junior Design
+
+LMC 4701:
+  name: US Research Proposal Writing
+  credits: 1
+
+LMC 4702:
+  name: US Research Thesis Writing
+  credits: 1
+
+RESEARCH 1:
+  name: Research 1
+  credits: 3
+
+RESEARCH 2:
+  name: Research 2
+  credits: 3
+  requires:
+    - RESEARCH 1
+
+RESEARCH 3:
+  name: Research 3
+  credits: 3
+  requires:
+    - RESEARCH 2
+
+# Thread Courses
+
+CS 2200:
+  name: Systems and Networks
+  credits: 4
+
+CS 3210:
+  name: Design of Operating Systems
+  credits: 3
+  requires:
+    - CS 2200
+
+CS 3220:
+  name: Processor Design
+  credits: 3
+  requires:
+    - CS 2200
+
+CS 3510:
+  name: Design & Analysis of Algorithms
+  credits: 3
+
+ECE 2031:
+  name: Digital Design Lab
+  credits: 2
+
+CS 3600:
+  name: Intro to Artificial Intelligence
+  credits: 3
+
+CS 3630:
+  name: Intro to Perception & Robotics
+  credits: 3
+
+CS 4641:
+  name: Machine Learning
+  credits: 3
+
+CS 4644:
+  name: Deep Learning
+  credits: 3
+  requires:
+    - CS 3510
+
+CS 4650:
+  name: Natural Language
+  credits: 3
+  requires:
+    - CS 3510
+
+CS 4210:
+  name: Advanced Operating Systems
+  credits: 3
+  requires:
+    - CS 3210
+
+CS 4240:
+  name: Compilers & Interpreters
+  credits: 3
+
+# Other required courses
+
+MATH 3012:
+  name: Applied Combinatorics
+  credits: 3
+
+MATH 3215:
+  name: Probability & Statistics
+  credits: 3

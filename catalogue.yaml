@@ -1,0 +1,200 @@
+##################################
+### BSCS - Degree Requirements ### 
+##################################
+
+POL 1101: 
+  name: Government of the United States
+  credits: 3
+
+HIST 2112: 
+  name: The United States since 1877
+  credits: 3
+
+APPH 1050:
+  name: Science of Physical Activity & Health
+  credits: 2
+
+################################
+### BSCS - Core Requirements ###
+################################
+
+ENGL 1102:
+  name: English Composition II
+  credits: 3
+
+HUMANITY 1:
+  name: Humanities 1
+  credits: 3
+
+HUMANITY 2:
+  name: Humanities 2
+  credits: 3
+
+MATH 1564:
+  name: Linear Algebra with Abstract Vector Spaces
+  credits: 4
+
+PSYC 1101:
+  name: General Psychology
+  credits: 3
+
+CS 1101:
+  name: Freshman Leap Seminar
+  credits: 1
+
+CS 2051:
+  name: Honors Discrete Math CS
+  credits: 3
+
+CS 1331:
+  name: Introduction to Object-Oriented Programming
+  credits: 3
+
+CS 1332:
+  name: Data Structures and Algorithms
+  credits: 3
+  requires:
+    - CS 1331
+
+MATH 2561:
+  name: Honors Multivariable Calculus
+  credits: 4
+  requires:
+    - MATH 1564
+
+#################################
+### BSCS - Major Requirements ###
+#################################
+
+CS 2340:
+  name: Objects and Design
+  credits: 3
+
+CS 4003:
+  name: AI Ethics and Society
+  credits: 3
+
+RESEARCH 1:
+  name: Research 1
+  credits: 3
+
+RESEARCH 2:
+  name: Research 2
+  credits: 3
+  requires:
+    - RESEARCH 1
+
+RESEARCH 3:
+  name: Research 3
+  credits: 3
+  requires:
+    - RESEARCH 2
+
+LMC 4701:
+  name: US Research Proposal Writing
+  credits: 1
+  requires:
+    - RESEARCH 1
+
+LMC 4702:
+  name: US Research Thesis Writing
+  credits: 1
+  requires:
+    - LMC 4701
+    - RESEARCH 2
+
+CS 2110:
+  name: Computer Organization and Programming
+  credits: 4
+  requires:
+    - CS 1331
+
+CS 2200:
+  name: Systems and Networks
+  credits: 3
+  requires:
+    - CS 2110
+
+CS 3210:
+  name: Design of Operating Systems
+  credits: 3
+  requires:
+    - CS 2200
+
+CS 3220:
+  name: Processor Design
+  credits: 3
+  requires:
+    - CS 2200
+    - ECE 2031
+
+CS 3510:
+  name: Design and Analysis of Algorithms
+  credits: 3
+  requires:
+    - CS 2051
+    - CS 1332 
+
+ECE 2031:
+  name: Digital Design Lab
+  credits: 3
+  requires:
+    - CS 2110
+
+CS 3600:
+  name: Introduction to Artificial Intelligence
+  credits: 3
+  requires:
+    - CS 1332
+
+CS 3630:
+  name: Intro to Perception and Robotics
+  credits: 3
+  requires:
+    - CS 1332
+
+CS 4641:
+  name: Machine Learning
+  credits: 3
+  requires:
+    - CS 1332
+    - MATH 1564
+
+CS 4644:
+  name: Deep Learning
+  credits: 3
+  requires:
+    - MATH 2561
+    - CS 2110
+    - CS 3510
+
+CS 4650:
+  name: Natural Language
+  credits: 3
+  requires:
+    - CS 3510
+    - MATH 2561
+
+CS 4210:
+  name: Advanced Operating Systems
+  credits: 3
+  requires:
+    - CS 3210
+
+CS 4240:
+  name: Compilers and Interpreters
+  credits: 3
+  requires:
+    - CS 2340
+
+MATH 3012:
+  name: Applied Combinatorics
+  credits: 3
+  requires:
+    - MATH 1564
+
+MATH 3215:
+  name: Probability and Statistics
+  credits: 3
+  requires:
+    - MATH 2561
