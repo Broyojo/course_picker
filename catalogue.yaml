@@ -70,8 +70,12 @@ CS 2340:
   name: Objects and Design
   credits: 3
 
-CS 4003:
-  name: AI Ethics and Society
+# CS 4003:
+#   name: AI Ethics and Society
+#   credits: 3
+
+CS 3001:
+  name: Computing and Society
   credits: 3
 
 RESEARCH 1:
@@ -93,15 +97,13 @@ RESEARCH 3:
 LMC 4701:
   name: US Research Proposal Writing
   credits: 1
-  requires:
-    - RESEARCH 1
 
 LMC 4702:
   name: US Research Thesis Writing
   credits: 1
   requires:
     - LMC 4701
-    - RESEARCH 2
+    - RESEARCH 1
 
 CS 2110:
   name: Computer Organization and Programming
@@ -111,7 +113,7 @@ CS 2110:
 
 CS 2200:
   name: Systems and Networks
-  credits: 3
+  credits: 4
   requires:
     - CS 2110
 
@@ -137,7 +139,7 @@ CS 3511:
 
 ECE 2031:
   name: Digital Design Lab
-  credits: 3
+  credits: 2
   requires:
     - CS 2110
 

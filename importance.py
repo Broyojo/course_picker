@@ -46,7 +46,7 @@ def read_yaml(filename):
 
 # Main execution
 courses = read_yaml("catalogue.yaml")
-schedule = read_yaml("full_schedule.yaml")
+schedule = read_yaml("full_schedule-2.yaml")
 
 # Extract all scheduled courses
 scheduled_courses = set()
@@ -61,5 +61,5 @@ print(
     "\nCourses sorted by number of ancestors (prerequisites), excluding scheduled courses:"
 )
 for course, ancestor_count in sorted_courses:
-    # if course not in scheduled_courses:
-    print(f"{course}: {ancestor_count} ancestors")
+    if course not in scheduled_courses:
+        print(f"{course}: {ancestor_count} ancestors")
