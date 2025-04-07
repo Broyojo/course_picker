@@ -2,13 +2,13 @@
 ### BSCS - Degree Requirements ### 
 ##################################
 
-POL 1101: 
-  name: Government of the United States
-  credits: 3
+# POL 1101: 
+#   name: Government of the United States
+#   credits: 3
 
-HIST 2112: 
-  name: The United States since 1877
-  credits: 3
+# HIST 2112: 
+#   name: The United States since 1877
+#   credits: 3
 
 APPH 1050:
   name: Science of Physical Activity & Health
