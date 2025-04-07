@@ -24,12 +24,11 @@ def verify(catalogue_path: str, schedule_path: str):
 
         if names is not None:
             for name in names:
-                try:
-                    course = catalogue[name]
-                except:
-                    if name is not None:
-                        print(f"❌ {semester}: {name} not found in catalogue")
+                if name not in catalogue:
+                    print(f"❌ {semester}: {name} not found in catalogue")
                     continue
+
+                course = catalogue[name]
 
                 if name in taken:
                     print(f"❌ {semester}: {name} already taken")
@@ -41,8 +40,6 @@ def verify(catalogue_path: str, schedule_path: str):
                             continue
 
                 credits += course["credits"]
-
-            for name in names:
                 taken.add(name)
 
         if credits < 12:
@@ -77,16 +74,17 @@ class Config:
     schedule: str
 
 
-config: Config | None = None
-
-
 class MyHandler(FileSystemEventHandler):
+    def __init__(self, config: Config):
+        super().__init__()
+        self.config = config
+
     def on_modified(self, event: FileSystemEvent):
         os.system("clear")
         try:
-            assert config is not None
             verify(
-                catalogue_path=config.catalogue, schedule_path=config.schedule
+                catalogue_path=self.config.catalogue,
+                schedule_path=self.config.schedule,
             )
         except:
             print(f"❌ Error Occurred:")
@@ -94,7 +92,6 @@ class MyHandler(FileSystemEventHandler):
 
 
 def main():
-    global config
     parser = argparse.ArgumentParser(
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
@@ -115,7 +112,7 @@ def main():
     args = parser.parse_args()
     config = Config(**vars(args))
 
-    event_handler = MyHandler()
+    event_handler = MyHandler(config)
     observer = Observer()
 
     observer.schedule(event_handler, config.schedule, recursive=True)  # type: ignore

@@ -1,30 +1,38 @@
 import copy
 import json
-from collections import defaultdict
+from typing import Any
 
 import yaml
 
+Catalog = dict[str, dict[str, Any]]
+Schedule = dict[str, list[str]]
 
-def read_yaml(filename):
+
+def read_yaml(filename: str):
     with open(filename, "r") as file:
         return yaml.safe_load(file)
 
 
-def write_yaml(data, filename):
+def write_yaml(data: Schedule, filename: str):
     with open(filename, "w") as file:
         yaml.dump(data, file, default_flow_style=False)
 
 
-def get_prerequisites(course, catalog):
+def get_prerequisites(course: str, catalog: Catalog):
     return set(catalog.get(course, {}).get("requires", []))
 
 
-def get_course_credits(course, catalog):
+def get_course_credits(course: str, catalog: Catalog):
     return catalog.get(course, {}).get("credits", 0)
 
 
-def verify_semester(semester, courses, taken_courses, catalog):
-    if courses is None:
+def verify_semester(
+    semester: str,
+    courses: list[str],
+    taken_courses: set[str],
+    catalog: Catalog,
+):
+    if len(courses) == 0:
         return False, "Semester is empty"
 
     credits = sum(get_course_credits(course, catalog) for course in courses)
@@ -46,12 +54,12 @@ def verify_semester(semester, courses, taken_courses, catalog):
     return True, f"Valid with {credits} credits"
 
 
-def verify_schedule(schedule, catalog):
-    taken = set()
+def verify_schedule(schedule: Schedule, catalog: Catalog):
+    taken = set[str]()
     total_credits = 0
 
     for semester, courses in schedule.items():
-        if courses is None:
+        if len(courses) == 0:
             continue
 
         credits = sum(get_course_credits(course, catalog) for course in courses)
@@ -74,7 +82,9 @@ def verify_schedule(schedule, catalog):
         total_credits += credits
 
     if diff := set(catalog.keys()) - taken:
-        missing_credits = sum(get_course_credits(course, catalog) for course in diff)
+        missing_credits = sum(
+            get_course_credits(course, catalog) for course in diff
+        )
         return (
             False,
             f"Missing {len(diff)} courses worth {missing_credits} credits: {', '.join(diff)}",
@@ -83,14 +93,20 @@ def verify_schedule(schedule, catalog):
     return True, f"Valid schedule with {total_credits} total credits"
 
 
-def generate_valid_schedule(catalog, initial_schedule, num_semesters=6):
+def generate_valid_schedule(
+    catalog: Catalog,
+    initial_schedule: Schedule,
+    num_semesters: int = 6,
+):
     all_courses = set(catalog.keys())
-    taken_courses = set()
+    taken_courses = set[str]()
     schedule = copy.deepcopy(initial_schedule)
 
     # Verify and keep pre-set semesters
     for semester, courses in list(schedule.items()):
-        is_valid, message = verify_semester(semester, courses, taken_courses, catalog)
+        is_valid, message = verify_semester(
+            semester, courses, taken_courses, catalog
+        )
         if is_valid:
             taken_courses.update(courses)
             print(f"Keeping pre-set {semester}: {courses} - {message}")
@@ -104,14 +120,14 @@ def generate_valid_schedule(catalog, initial_schedule, num_semesters=6):
         if semester not in schedule:
             schedule[semester] = []
 
-    def backtrack(semester_index, count=[0]):
+    def backtrack(semester_index: int, count: list[int] = [0]) -> bool:
         if count[0] % 100000 == 0:
             print(f"Backtrack count: {count}")
             print(json.dumps(schedule, indent=2))
         count[0] += 1
 
         if semester_index == num_semesters:
-            is_valid, message = verify_schedule(schedule, catalog)
+            is_valid, _ = verify_schedule(schedule, catalog)
             return is_valid
 
         semester = f"Semester {semester_index + 1}"
@@ -156,8 +172,8 @@ def generate_valid_schedule(catalog, initial_schedule, num_semesters=6):
 
 
 def main():
-    catalog = read_yaml("catalogue.yaml")
-    initial_schedule = read_yaml("schedule.yaml")
+    catalog = read_yaml("./catalogues/catalogue.yaml")
+    initial_schedule = read_yaml("./schedules/full_schedule-2.yaml")
 
     print("Initial schedule:")
     print(json.dumps(initial_schedule, indent=2))
@@ -169,7 +185,9 @@ def main():
         if is_valid:
             print("Valid schedule generated:")
             for semester, courses in valid_schedule.items():
-                credits = sum(get_course_credits(course, catalog) for course in courses)
+                credits = sum(
+                    get_course_credits(course, catalog) for course in courses
+                )
                 print(f"{semester}: {courses} ({credits} credits)")
 
             write_yaml(valid_schedule, "generated_schedule.yaml")
