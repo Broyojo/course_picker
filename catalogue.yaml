@@ -1,12 +1,12 @@
 ##################################
-### BSCS - Degree Requirements ### 
+### BSCS - Degree Requirements ###
 ##################################
 
-# POL 1101: 
+# POL 1101:
 #   name: Government of the United States
 #   credits: 3
 
-# HIST 2112: 
+# HIST 2112:
 #   name: The United States since 1877
 #   credits: 3
 
@@ -135,7 +135,7 @@ CS 3511:
   credits: 3
   requires:
     - CS 2051
-    - CS 1332 
+    - CS 1332
 
 ECE 2031:
   name: Digital Design Lab

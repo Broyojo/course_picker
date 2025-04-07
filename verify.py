@@ -2,20 +2,21 @@ import argparse
 import os
 import time
 import traceback
+from dataclasses import dataclass
 
 import yaml
-from watchdog.events import FileSystemEventHandler
+from watchdog.events import FileSystemEvent, FileSystemEventHandler
 from watchdog.observers import Observer
 
 
-def verify(catalogue_path, schedule_path):
+def verify(catalogue_path: str, schedule_path: str):
     with open(catalogue_path) as stream:
         catalogue = yaml.safe_load(stream)
 
     with open(schedule_path) as stream:
         schedule = yaml.safe_load(stream)
 
-    taken = set()
+    taken = set[str]()
     total_credits = 0
 
     for semester, names in schedule.items():
@@ -70,36 +71,54 @@ def verify(catalogue_path, schedule_path):
     print(f"\n=============\n\nTaking {total_credits} credits in total")
 
 
-args = None
+@dataclass
+class Config:
+    catalogue: str
+    schedule: str
+
+
+config: Config | None = None
 
 
 class MyHandler(FileSystemEventHandler):
-    def on_modified(self, event):
+    def on_modified(self, event: FileSystemEvent):
         os.system("clear")
         try:
-            verify(catalogue_path=args.catalogue, schedule_path=args.schedule)
-        except Exception as e:
+            assert config is not None
+            verify(
+                catalogue_path=config.catalogue, schedule_path=config.schedule
+            )
+        except:
             print(f"❌ Error Occurred:")
             print(traceback.format_exc())
 
 
 def main():
-    global args
+    global config
     parser = argparse.ArgumentParser(
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
     parser.add_argument(
-        "-c", "--catalogue", type=str, default="catalogue.yaml", help="Catalogue file"
+        "-c",
+        "--catalogue",
+        type=str,
+        default="catalogue.yaml",
+        help="Catalogue file",
     )
     parser.add_argument(
-        "-s", "--schedule", type=str, default="schedule.yaml", help="Schedule file"
+        "-s",
+        "--schedule",
+        type=str,
+        default="schedule.yaml",
+        help="Schedule file",
     )
     args = parser.parse_args()
+    config = Config(**vars(args))
 
     event_handler = MyHandler()
     observer = Observer()
 
-    observer.schedule(event_handler, args.schedule, recursive=True)
+    observer.schedule(event_handler, config.schedule, recursive=True)  # type: ignore
     observer.start()
 
     try:
