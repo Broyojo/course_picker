@@ -21,17 +21,17 @@ MAX_CREDITS = 21
 MULTILINE_PRINT_THRESHOLD = 3
 
 
-def verify(catalogue_path: str, schedule_path: str) -> None:
+def verify(catalog_path: str, schedule_path: str) -> None:
     """Verify schedule."""
-    if not Path(catalogue_path).exists():
+    if not Path(catalog_path).exists():
         msg = "Catalog path does not exist"
         raise ValueError(msg)
     if not Path(schedule_path).exists():
         msg = "Schedule path does not exist"
         raise ValueError(msg)
 
-    with Path(catalogue_path).open() as stream:
-        catalogue = yaml.safe_load(stream)
+    with Path(catalog_path).open() as stream:
+        catalog = yaml.safe_load(stream)
 
     with Path(schedule_path).open() as stream:
         schedule = yaml.safe_load(stream)
@@ -39,10 +39,10 @@ def verify(catalogue_path: str, schedule_path: str) -> None:
     taken = set[str]()
     total_credits = 0
     for semester, names in schedule.items():
-        total_credits += verify_semester(catalogue, taken, semester, names)
+        total_credits += verify_semester(catalog, taken, semester, names)
 
-    if diff := set(catalogue.keys()).difference(taken):
-        missing_credits = sum(catalogue[n]["credits"] for n in diff)
+    if diff := set(catalog.keys()).difference(taken):
+        missing_credits = sum(catalog[n]["credits"] for n in diff)
         if missing_credits < 0:
             msg = "Missing credits cannot be below 0"
             raise ValueError(msg)
@@ -62,7 +62,7 @@ def verify(catalogue_path: str, schedule_path: str) -> None:
 
 
 def verify_semester(
-    catalogue: list[dict[str, str | int | list[str]]],
+    catalog: list[dict[str, str | int | list[str]]],
     taken: set[str],
     semester: str,
     names: list[str],
@@ -72,15 +72,15 @@ def verify_semester(
 
     if names is not None:
         for name in names:
-            if name not in catalogue:
+            if name not in catalog:
                 logger.warning(
-                    "❌ %s: %s not found in catalogue",
+                    "❌ %s: %s not found in catalog",
                     semester,
                     name,
                 )
                 continue
 
-            course = catalogue[name]
+            course = catalog[name]
 
             if name in taken:
                 logger.warning(
@@ -144,7 +144,7 @@ def validate_credits(semester: str, course_credits: int) -> None:
 class Config:
     """Config for the CLI arguments."""
 
-    catalogue: str
+    catalog: str
     schedule: str
 
 
@@ -162,7 +162,7 @@ class MyHandler(FileSystemEventHandler):
         subprocess.call(["cls" if os.name == "nt" else "clear"])  # noqa: S603
         try:
             verify(
-                catalogue_path=self.config.catalogue,
+                catalog_path=self.config.catalog,
                 schedule_path=self.config.schedule,
             )
         except Exception:
@@ -176,10 +176,10 @@ def main() -> None:
     )
     parser.add_argument(
         "-c",
-        "--catalogue",
+        "--catalog",
         type=str,
-        default="catalogue.yaml",
-        help="Catalogue file",
+        default="catalog.yaml",
+        help="catalog file",
     )
     parser.add_argument(
         "-s",
