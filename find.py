@@ -1,11 +1,15 @@
-from collections import defaultdict
-
-import numpy as np
-
 # Given courses data
 courses = {
-    "PSYC 1101": {"name": "General Psychology", "credits": 3, "requirements": []},
-    "CS 2051": {"name": "Honors Discrete Math", "credits": 3, "requirements": []},
+    "PSYC 1101": {
+        "name": "General Psychology",
+        "credits": 3,
+        "requirements": [],
+    },
+    "CS 2051": {
+        "name": "Honors Discrete Math",
+        "credits": 3,
+        "requirements": [],
+    },
     "CS 1332": {
         "name": "Data Structures and Algorithms",
         "credits": 3,
@@ -17,7 +21,11 @@ courses = {
         "requirements": [],
     },
     "CS 2340": {"name": "Objects and Design", "credits": 3, "requirements": []},
-    "CS 4003": {"name": "AI Ethics and Society", "credits": 3, "requirements": []},
+    "CS 4003": {
+        "name": "AI Ethics and Society",
+        "credits": 3,
+        "requirements": [],
+    },
     "CS 2110": {
         "name": "Computer Organization and Programming",
         "credits": 4,
@@ -33,7 +41,11 @@ courses = {
         "credits": 3,
         "requirements": ["CS 2200"],
     },
-    "CS 3220": {"name": "Processor Design", "credits": 3, "requirements": ["CS 2200"]},
+    "CS 3220": {
+        "name": "Processor Design",
+        "credits": 3,
+        "requirements": ["CS 2200"],
+    },
     "CS 3511": {
         "name": "Algorithms Honors",
         "credits": 3,
@@ -54,7 +66,11 @@ courses = {
         "credits": 3,
         "requirements": ["CS 1332"],
     },
-    "CS 4641": {"name": "Machine Learning", "credits": 3, "requirements": ["CS 1332"]},
+    "CS 4641": {
+        "name": "Machine Learning",
+        "credits": 3,
+        "requirements": ["CS 1332"],
+    },
     "CS 4644": {
         "name": "Deep Learning",
         "credits": 3,
@@ -110,7 +126,9 @@ def backtrack(schedule, semester, courses, num_semesters):
             for sem in range(semester, num_semesters):
                 if can_schedule(course, sem, schedule, courses):
                     schedule[course] = sem
-                    schedules += backtrack(schedule, semester, courses, num_semesters)
+                    schedules += backtrack(
+                        schedule, semester, courses, num_semesters
+                    )
                     del schedule[course]
     return schedules
 

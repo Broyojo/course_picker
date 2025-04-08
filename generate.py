@@ -167,8 +167,8 @@ def generate_valid_schedule(
 
     if backtrack(0):
         return schedule
-    else:
-        return None
+
+    return None
 
 
 def main():

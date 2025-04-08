@@ -208,8 +208,16 @@
 # }
 
 intel_systems_courses_with_research = {
-    "PSYC 1101": {"name": "General Psychology", "credits": 3, "requirements": []},
-    "CS 2051": {"name": "Honors Discrete Math", "credits": 3, "requirements": []},
+    "PSYC 1101": {
+        "name": "General Psychology",
+        "credits": 3,
+        "requirements": [],
+    },
+    "CS 2051": {
+        "name": "Honors Discrete Math",
+        "credits": 3,
+        "requirements": [],
+    },
     "CS 1332": {
         "name": "Data Structures and Algorithms",
         "credits": 3,
@@ -221,7 +229,11 @@ intel_systems_courses_with_research = {
         "requirements": [],
     },
     "CS 2340": {"name": "Objects and Design", "credits": 3, "requirements": []},
-    "CS 4003": {"name": "AI Ethics and Society", "credits": 3, "requirements": []},
+    "CS 4003": {
+        "name": "AI Ethics and Society",
+        "credits": 3,
+        "requirements": [],
+    },
     "CS 2110": {
         "name": "Computer Organization and Programming",
         "credits": 4,
@@ -237,7 +249,11 @@ intel_systems_courses_with_research = {
         "credits": 3,
         "requirements": ["CS 2200"],
     },
-    "CS 3220": {"name": "Processor Design", "credits": 3, "requirements": ["CS 2200"]},
+    "CS 3220": {
+        "name": "Processor Design",
+        "credits": 3,
+        "requirements": ["CS 2200"],
+    },
     "CS 3510": {
         "name": "Algorithms",
         "credits": 3,
@@ -258,7 +274,11 @@ intel_systems_courses_with_research = {
         "credits": 3,
         "requirements": ["CS 1332"],
     },
-    "CS 4641": {"name": "Machine Learning", "credits": 3, "requirements": ["CS 1332"]},
+    "CS 4641": {
+        "name": "Machine Learning",
+        "credits": 3,
+        "requirements": ["CS 1332"],
+    },
     "CS 4644": {
         "name": "Deep Learning",
         "credits": 3,
@@ -285,8 +305,16 @@ intel_systems_courses_with_research = {
         "requirements": ["MATH 2561"],
     },
     "Research 1": {"name": "Research 1", "credits": 3, "requirements": []},
-    "Research 2": {"name": "Research 1", "credits": 3, "requirements": ["Research 1"]},
-    "Research 3": {"name": "Research 1", "credits": 3, "requirements": ["Research 2"]},
+    "Research 2": {
+        "name": "Research 1",
+        "credits": 3,
+        "requirements": ["Research 1"],
+    },
+    "Research 3": {
+        "name": "Research 1",
+        "credits": 3,
+        "requirements": ["Research 2"],
+    },
     "LMC 4701": {
         "name": "US Research Proposal Writing",
         "credits": 1,
@@ -408,7 +436,9 @@ def main():
     # 1. take a look at whole course catalogue for math/cs, pick ones that you want to do to make last semester more full.
     # 2. look at all ai research labs on campus
 
-    print(verify(schedule_with_research, intel_systems_courses_with_research, 126))
+    print(
+        verify(schedule_with_research, intel_systems_courses_with_research, 126)
+    )
 
     # intel_systems_schedule_with_2340 = {
     #     2: [

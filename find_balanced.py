@@ -14,7 +14,10 @@ def find_root_courses(courses):
 def find_next_courses(courses, done_courses):
     next_courses = []
     for course, details in courses.items():
-        if all(requirement in done_courses for requirement in details["requirements"]):
+        if all(
+            requirement in done_courses
+            for requirement in details["requirements"]
+        ):
             if course not in done_courses:
                 next_courses.append(course)
     return next_courses
@@ -33,7 +36,9 @@ def generate_schedule(courses, done_courses=None, schedule=None, semester=1):
             return None
 
     # Try to fill the semester with courses
-    for course in find_root_courses(courses) + find_next_courses(courses, done_courses):
+    for course in find_root_courses(courses) + find_next_courses(
+        courses, done_courses
+    ):
         if semester not in schedule:
             schedule[semester] = []
 
