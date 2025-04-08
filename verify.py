@@ -62,7 +62,7 @@ def verify(catalog_path: str, schedule_path: str) -> None:
 
 
 def verify_semester(
-    catalog: list[dict[str, str | int | list[str]]],
+    catalog: dict[str, dict[str, str | int | list[str]]],
     taken: set[str],
     semester: str,
     names: list[str],
@@ -101,7 +101,6 @@ def verify_semester(
                             name,
                             required,
                         )
-                        continue
 
             if not isinstance(course["credits"], int):
                 msg = "course 'credits' must be int"
