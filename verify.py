@@ -177,14 +177,14 @@ def main() -> None:
         "-c",
         "--catalog",
         type=str,
-        default="catalog.yaml",
+        default="./examples/catalogs/catalog.yaml",
         help="catalog file",
     )
     parser.add_argument(
         "-s",
         "--schedule",
         type=str,
-        default="schedule.yaml",
+        default="./examples/schedules/full_schedule-2.yaml",
         help="Schedule file",
     )
     args = parser.parse_args()
