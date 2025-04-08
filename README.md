@@ -1,5 +1,3 @@
-# This is a test
+# Course Picker
 
-This is a paragraph
-
-this is another paragraph
+Run the comand 
