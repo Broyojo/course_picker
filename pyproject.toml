@@ -5,3 +5,6 @@ description = "Tool to help build schedules for college semesters"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = ["pyyaml>=6.0.2", "watchdog>=6.0.0"]
+
+[dependency-groups]
+dev = ["pytest>=8.3.5", "pytest-cov>=6.1.1", "ruff>=0.11.4"]
