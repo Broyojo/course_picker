@@ -1,10 +1,7 @@
 [project]
 name = "course-picker"
 version = "0.1.0"
-description = "Add your description here"
+description = "Tool to help build schedules for college semesters"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = [
-    "pyyaml>=6.0.2",
-    "watchdog>=6.0.0",
-]
+dependencies = ["pyyaml>=6.0.2", "watchdog>=6.0.0"]
