@@ -9,7 +9,7 @@ Then, make two YAML files, one for your schedule and one for your catalog. Examp
 ## Running
 
 ```bash
-$ python verify.py -s [SCHEDULE_PATH] -c [CATALOG_PATH] 
+$ python verify.py -s [SCHEDULE_PATH] -c [CATALOG_PATH] --min-credits [MIN_CREDITS_PER_SEMESTER] --max-credits [MAX_CREDITS_PER_SEMESTER]
 ```
 
 When you modify and save your schedule or catalog file, it should print messages to the terminal.
